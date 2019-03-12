@@ -131,7 +131,7 @@ namespace RoboticParkingSystem
             }
             else if (nametxt.Text == usernameSup)
             {
-                new Form4().Show(); //ako je supervizor otvara njegovu formu
+                new Form7().Show(); //ako je supervizor otvara njegovu formu
                 this.Hide();
 
             }

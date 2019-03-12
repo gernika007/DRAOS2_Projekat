@@ -39,6 +39,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.uplata = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -127,15 +128,16 @@
             // unos
             // 
             this.unos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(126)))), ((int)(((byte)(176)))));
-            this.unos.Location = new System.Drawing.Point(305, 109);
+            this.unos.Location = new System.Drawing.Point(286, 42);
             this.unos.Name = "unos";
-            this.unos.Size = new System.Drawing.Size(531, 435);
+            this.unos.Size = new System.Drawing.Size(531, 614);
             this.unos.TabIndex = 2;
             this.unos.Visible = false;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.Control;
+            this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.uplata);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.unos);
@@ -150,7 +152,7 @@
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(126)))), ((int)(((byte)(176)))));
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(300, 48);
+            this.label1.Location = new System.Drawing.Point(280, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(177, 29);
             this.label1.TabIndex = 3;
@@ -160,11 +162,26 @@
             // uplata
             // 
             this.uplata.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
-            this.uplata.Location = new System.Drawing.Point(77, 48);
+            this.uplata.Location = new System.Drawing.Point(77, 47);
             this.uplata.Name = "uplata";
-            this.uplata.Size = new System.Drawing.Size(924, 579);
+            this.uplata.Size = new System.Drawing.Size(924, 580);
             this.uplata.TabIndex = 0;
             this.uplata.Visible = false;
+            this.uplata.Paint += new System.Windows.Forms.PaintEventHandler(this.uplata_Paint);
+            // 
+            // label2
+            // 
+            this.label2.AutoEllipsis = true;
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(159)))), ((int)(((byte)(67)))));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(74, 19);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(74, 25);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Uplata:";
+            this.label2.Visible = false;
             // 
             // Form7
             // 
@@ -198,5 +215,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel uplata;
+        private System.Windows.Forms.Label label2;
     }
 }

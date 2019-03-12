@@ -66,7 +66,9 @@ namespace RoboticParkingSystem
             button3.Font = new Font("MS Sans Serif", 12);
             panel1.BackColor= Color.FromArgb(72, 126, 176);
             button1.BackColor = Color.FromArgb(72, 126, 176);
+            uplata.Visible = false;
             unos.Visible = true;
+            label2.Visible = false;
             label1.Visible = true;
             //Form5.DefaultBackColor.= Color.FromArgb(72, 126, 176);
             unos.Controls.Clear();
@@ -96,12 +98,18 @@ namespace RoboticParkingSystem
             uplata.Visible = true;
             unos.Visible = false;
             label1.Visible = false;
+            label2.Visible = true;
             //Form5.DefaultBackColor.= Color.FromArgb(72, 126, 176);
             uplata.Controls.Clear();
             FormDodajUplatu novaforma1 = new FormDodajUplatu();
             novaforma1.TopLevel = false;
             uplata.Controls.Add(novaforma1);
             novaforma1.Show();
+        }
+
+        private void uplata_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
