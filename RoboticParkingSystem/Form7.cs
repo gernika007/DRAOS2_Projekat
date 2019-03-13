@@ -25,26 +25,45 @@ namespace RoboticParkingSystem
 
         private void Form6_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'database2DataSet2.Klijenti' table. You can move, or remove it, as needed.
-            //this.klijentiTableAdapter.Fill(this.database2DataSet2.Klijenti);
-            DataTable dt = new DataTable("Klijenti");
+
+            DataTable dt = new DataTable("Alarmi");
             using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["RoboticParkingSystem.Properties.Settings.Database2ConnectionString"].ConnectionString))
             {
                 if (cn.State == ConnectionState.Closed)
                 {
                     cn.Open();
                 }
-                //nesto ne valja sa ovom naredbom
-                string sqlNaredba = "select Klijenti.Ime,Klijenti.Prezime,Klijenti.Adresa,Klijenti.Registracija,Klijenti.Vozacka,datefromparts(year(Uplate.DatumUplate),month(Uplate.DatumUplate)+Uplate.BrojMjeseci,day(Uplate.DatumUplate)) as 'Uplata vazi do' from Klijenti inner join Uplate on Uplate.ClientID = Klijenti.ClientID ";
-                string sqlNaredba2 = "where datefromparts(year(Uplate.DatumUplate),month(Uplate.DatumUplate)+Uplate.BrojMjeseci,day(Uplate.DatumUplate)) >= GETDATE();";
-                using (SqlDataAdapter da = new SqlDataAdapter(sqlNaredba + sqlNaredba2, cn))
+
+                string sqlNaredba = "select TekstAlarma as 'Tekst alarma',VrijemeAlarma as 'Vrijeme alarma', Prioritet,Obradjen from Alarmi order by Prioritet ASC";
+
+                using (SqlDataAdapter da = new SqlDataAdapter(sqlNaredba, cn))
                 {
 
                     da.Fill(dt);
-                    //dataGridView1.DataSource = dt;
+                    dataGridView2.DataSource = dt;
 
                 }
             }
+            // podesavanje sirine pojedinih kolona
+            dataGridView2.Columns[0].Width = 220;
+            dataGridView2.Columns[1].Width = 210;
+            dataGridView2.Columns[2].Width = 93;
+            dataGridView2.Columns[3].Width = 84;
+
+            // podesavanje boje ovisno od prioriteta alarma
+            foreach (DataGridViewRow row in dataGridView2.Rows)
+            {
+                if (Convert.ToInt32(row.Cells[2].Value) == 1)
+                    row.DefaultCellStyle.BackColor = Color.FromArgb(255, 166, 166);
+                else if (Convert.ToInt32(row.Cells[2].Value) == 2)
+                    row.DefaultCellStyle.BackColor = Color.FromArgb(255, 206, 157);
+                else
+                    row.DefaultCellStyle.BackColor = Color.FromArgb(255, 255, 125);
+            }
+
+            // TODO: This line of code loads data into the 'database2DataSet2.Klijenti' table. You can move, or remove it, as needed.
+            //this.klijentiTableAdapter.Fill(this.database2DataSet2.Klijenti);
+            
             //this.button2.BackColor = SystemColors.Control;
             //this.button2.ForeColor = SystemColors.ControlText;
             //this.button2.Font = new Font("MS Sans Serif", 13);
@@ -58,7 +77,7 @@ namespace RoboticParkingSystem
         {
             button2.BackColor = SystemColors.Control;
             button2.ForeColor = SystemColors.ControlText;
-
+            panel4.Visible = false;
             button3.BackColor = Color.FromArgb(72, 126, 176);
             button4.BackColor= Color.FromArgb(72, 126, 176);
 
@@ -102,6 +121,7 @@ namespace RoboticParkingSystem
             unos.Visible = false;
             label1.Visible = false;
             label2.Visible = true;
+            panel4.Visible = false;
             //Form5.DefaultBackColor.= Color.FromArgb(72, 126, 176);
             uplata.Controls.Clear();
             FormDodajUplatu novaforma1 = new FormDodajUplatu();

@@ -8,10 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+
+
 namespace RoboticParkingSystem
 {
     public partial class Form5 : Form
     {
+        public static string ime1 = "";
+        public static string prezime1 = "";
+        public static string vozacka1 = "";
+        public static string tablice1 = "";
+        public static string adresa1 = "";
         public Form5()
         {
             InitializeComponent();
@@ -125,6 +132,11 @@ namespace RoboticParkingSystem
                 errorProvider1.SetError(textBox1, "");
             if (flag_validno)
             {
+                ime1 = ime;
+                prezime1 = prezime;
+                adresa1 = adresa;
+                vozacka1 = vozacka;
+                tablice1 = registracija;
                 Image img = pictureBox1.Image;
                 byte[] arr;
                 ImageConverter converter = new ImageConverter();
@@ -134,8 +146,10 @@ namespace RoboticParkingSystem
 
 
                 Klijenti_lista.data.Add(new Client(ime, prezime, adresa, pictureBox1.Image, registracija, vozacka));
-                DialogResult result = MessageBox.Show("Korisnik uspješno dodan!", "Akcija uspješna", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //DialogResult result = MessageBox.Show("Korisnik uspješno dodan!", "Akcija uspješna", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                new Form8().Show();
                 this.Hide();
+                //Form7.ScrollStateHScrollVisible = false;
             }
 
             
@@ -164,6 +178,11 @@ namespace RoboticParkingSystem
         private void textBox4_Enter(object sender, EventArgs e)
         {
             textBox4.SelectAll();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
