@@ -60,6 +60,8 @@ namespace RoboticParkingSystem
             button2.ForeColor = SystemColors.ControlText;
 
             button3.BackColor = Color.FromArgb(72, 126, 176);
+            button4.BackColor= Color.FromArgb(72, 126, 176);
+
             button3.ForeColor = SystemColors.ControlLightLight;
 
             button2.Font = new Font("MS Sans Serif", 13);
@@ -89,6 +91,7 @@ namespace RoboticParkingSystem
             button3.ForeColor = SystemColors.ControlText;
 
             button2.BackColor = Color.FromArgb(255, 159, 67);
+            button4.BackColor = Color.FromArgb(255, 159, 67);
             button2.ForeColor = SystemColors.ControlLightLight;
 
             button3.Font = new Font("MS Sans Serif", 13);
@@ -110,6 +113,12 @@ namespace RoboticParkingSystem
         private void uplata_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new Form1().Show();
+            this.Hide();
         }
     }
 }
