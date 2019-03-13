@@ -149,6 +149,12 @@ namespace RoboticParkingSystem
                 //DialogResult result = MessageBox.Show("Korisnik uspješno dodan!", "Akcija uspješna", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 new Form8().Show();
                 this.Hide();
+                //Form7.Close();
+                var first = Application.OpenForms.OfType<Form7>().FirstOrDefault();
+                if (first != null)
+                    first.Hide();
+
+
                 //Form7.ScrollStateHScrollVisible = false;
             }
 

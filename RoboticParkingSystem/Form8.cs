@@ -35,6 +35,8 @@ namespace RoboticParkingSystem
         private void button2_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Korisnik uspješno dodan!", "Akcija uspješna", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            new Form7().Show();
+            this.Hide();
 
         }
 
@@ -56,6 +58,12 @@ namespace RoboticParkingSystem
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            new Form7().Show();
+            this.Hide();
         }
     }
 }
